@@ -68,8 +68,8 @@ export const login = async (req, res, next) => {
     res
       .cookie("accessToken", token, {
         httpOnly: true,
-        sameSite: "lax",
-        secure: false,
+        sameSite: "none",
+        secure: true,
       })
       .status(200)
       .json(info);
@@ -81,8 +81,8 @@ export const login = async (req, res, next) => {
 export const logout = async (req, res) => {
   res
     .clearCookie("accessToken", {
-      sameSite: "lax",
-      secure: false,
+      sameSite: "none",
+      secure: true,
     })
     .status(200)
     .send("User has been logout");
