@@ -30,7 +30,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "https://freelance-platform-frontend.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   },
 });
@@ -50,7 +50,7 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://freelance-platform-frontend.vercel.app",
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   }),
 );
